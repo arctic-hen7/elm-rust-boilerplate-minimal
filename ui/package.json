@@ -1,0 +1,8 @@
+{
+    "name": "elm-rust-boilerplate-ui",
+    "version": "0.1.0",
+    "main": "index.js",
+    "author": "arctic_hen7 <arctic_hen7@pm.me>",
+    "license": "MIT",
+    "private": true
+}
