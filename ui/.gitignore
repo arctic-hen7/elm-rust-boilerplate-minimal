@@ -1,4 +1,5 @@
 dist/
+elm-stuff/
 
 .yarn/*
 !.yarn/cache

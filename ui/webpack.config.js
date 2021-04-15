@@ -4,6 +4,18 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 require("dotenv").config({ path: path.join(__dirname, "../.ports.env") });
 
 module.exports = {
+    module: {
+        rules: [
+            {
+                test: /\.elm$/,
+                exclude: [/elm-stuff/],
+                use: {
+                    loader: "elm-webpack-loader",
+                    options: {},
+                },
+            },
+        ],
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, "src/index.html"),

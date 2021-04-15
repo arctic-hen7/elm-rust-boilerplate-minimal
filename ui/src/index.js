@@ -1,4 +1,4 @@
-const root = document.getElementById("root");
-const p = document.createElement("p");
-p.innerText = "Hello, world!";
-root.appendChild(p);
+const { Elm } = require("./Main.elm");
+Elm.Main.init({
+    node: document.getElementById("root"),
+});
