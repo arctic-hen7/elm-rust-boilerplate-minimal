@@ -1,0 +1,18 @@
+version: "3.7"
+services:
+    playground:
+        image: boilerplate.playground
+        container_name: boilerplate.playground
+        build:
+            context: ./
+            target: playground # We use the playground stage of the Dockerfile so we get a terminal prompt
+        ports:
+            - "127.0.0.1:${APP_PORT}:8000" # Anything running on 0.0.0.0:8000 in the container gets forwarded to localhost:${APP_PORT} on the host
+        volumes:
+            # Binds your app code into the container so changes you make are reflected instantly
+            - type: bind
+              source: ./
+              target: /app
+        # Allows this container to be accessed with a terminal for debugging
+        stdin_open: true
+        tty: true
