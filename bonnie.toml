@@ -1,0 +1,15 @@
+[scripts]
+# Gets the ID of a running Docker container by its name (utility script)
+getcontainerid.cmd = "docker ps | awk -v containername=\"%containername\" '$0 ~ containername{print $1}'"
+getcontainerid.args = [
+    "containername"
+]
+# Use this script to run any `docker-compose` commands, it automatically interpolates environment variables
+dc = "docker-compose --env-file .ports.env %%"
+# Rebuilds all containers, use this when you cahnge any Docker configurations
+rebuild-containers = "bonnie dc up --build -d"
+# Opens a shell into the Docker container (doesn't build, so should be super-fast)
+# Change `boilerplate` to whatever you name your containers in `docker-compose.yml`
+sh = "bonnie dc up -d && docker attach $(bonnie getcontainerid boilerplate.playground)"
+# Brings down all Docker containers
+end = "bonnie dc down"
